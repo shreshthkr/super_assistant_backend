@@ -24,5 +24,14 @@ comprehensionRouter.get("/", async(req,res) => {
     }
 });
 
-
+comprehensionRouter.delete("/:id", async (req, res) => {
+  const questionId = req.params;
+  try {
+    const question = await comprehensionModel.findByIdAndDelete({_id:questionId});
+    
+    res.status(200).send({ msg: "Question deleted successfully" });
+  }  catch (err) {
+    res.send({ "msg": err.message })
+}
+});
 module.exports = {comprehensionRouter}

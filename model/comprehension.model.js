@@ -5,7 +5,7 @@ const comprehensionSchema = mongoose.Schema({
     passage: String,
     question: String,
     options: [String],
-    
+    answer: String
 }, {
     versionKey: false,
   });
